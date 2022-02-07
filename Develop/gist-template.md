@@ -66,6 +66,31 @@ Briefly summarize the regex you will be describing and what you will explain. In
     Looks for a hex value: ^#?([a-f0-9]{6}|[a-f0-9]{3})$
 
 ### Character Classes
+    \d Matches a single (numarical) digit character.
+
+    \w Matches a word character.
+
+    \s Matches whitespace.
+
+    \t Matches a tab.
+    
+    \n Matches a new line.
+
+    \r Matches a return.
+
+    . Matches any character.
+
+    \D Matches a single non-(numerical)digit.
+
+    \W Matches a non-word character.
+
+    \S matches a lack of whitespace.
+
+    \$\d Matches matches a string where $ oporator exists behind one digit.
+
+    example: In the following Regex which checks for an email, we can see in the second set of parenthesis that it is search for a single numerical digit followed by any chararcater between a-z one or more times. It this by using the \d, and . oporators as well as the + oporator mentioned previously.
+
+    Looks for an email address: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
 
 ### Flags
 

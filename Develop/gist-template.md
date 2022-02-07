@@ -118,7 +118,18 @@ Briefly summarize the regex you will be describing and what you will explain. In
     Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
 
 ### Bracket Expressions
-    
+    [abc] Matches a string where eather an a, b, c is included.
+
+    [a-z] Matches a string that contains any lowercase letter.
+
+    [a-zA-Z0-9] Matches a string that contains a lower-case letter, upper-case letter, or any digit 1-9.
+
+    [0-9]% Matches a string where any character 0-9 is followed directly by a %.
+
+    [^a-zA-Z] A string with no lower or uppercase letters.
+
+    example: In the following Regex which looks for a Hex-Value we see that it searches for a string with lowercase letters ranging from a to f or a (numerical) digit in both search expressions. It does this by using the expression [a-f0-9].
+
 ### Greedy and Lazy Match
 
 ### Boundaries

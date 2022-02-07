@@ -24,14 +24,35 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ### Anchors
     ^ Mathches the string that follows it.
+
     $ Match the string that precedes it.
+
     ^$ Matches the string in between the ^ and $.
 
-    example: This in this Regex which looks for an email the ^ and $ characters signify the start and end of the string the Regex is looking for.
+    example: In this Regex which looks for an email the ^ and $ characters signify the start and end of the string the Regex is looking for.
 
     Looks for an email: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
 
 ### Quantifiers
+    abc* Matches a string where ab is followed by 0 or more c.
+
+    abc+  Matches a string where ab is followed by 1 or more c.
+
+    abc? Matches a string where ab eather 0 or 1 c.
+
+    abc{3} Matches a string where ab is followed by 3 c.
+
+    abc{3,} Matches a string where ab is followed by 3 or more c.
+
+    abc{3,6} Matches a string where ab is followed greater than or equal to 3 and less than or equal to 6 c.
+
+    a(bc)* Matches a string where a is followed by 0 or more sequences of bc.
+
+    a(bc) {3,6} Match a string where a is followed by the sequence ab greater than or equal to 3 and less than or equal to 6 times.
+
+    example: In this Regex which looks for an email we see the {2,6} oporator. This searches for a domain between 2 and 6 characters.
+
+    Looks for an email: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
 
 ### OR Operator
 

@@ -31,7 +31,7 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     example: In this Regex which looks for an email the ^ and $ characters signify the start and end of the string the Regex is looking for.
 
-    Looks for an email: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
+    Looks for an email: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ### Quantifiers
     abc* Matches a string where ab is followed by 0 or more c.
@@ -52,7 +52,7 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     example: In this Regex which looks for an email we see the {2,6} oporator. This searches for a domain between 2 and 6 characters.
 
-    Looks for an email: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
+    Looks for an email: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ### OR Operator
     a(b|c) Matches a string where a is followed by eather b or c (and captures b and c).
@@ -63,7 +63,7 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     example: In this Regex which is looks for a hex-value we see the (|) and the [] oporators being used to search for combinations of six letters and numbers.
 
-    Looks for a hex value: ^#?([a-f0-9]{6}|[a-f0-9]{3})$
+    Looks for a hex value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ### Character Classes
     \d Matches a single (numarical) digit character.
@@ -90,9 +90,21 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     example: In the following Regex which checks for an email, we can see in the second set of parenthesis that it is search for a single numerical digit followed by any chararcater between a-z one or more times. It this by using the \d, and . oporators as well as the + oporator mentioned previously.
 
-    Looks for an email address: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
+    Looks for an email address: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ### Flags
+    /Regex/ Every Regex starts and ends with / oporator.
+        note: a flag goes after the closing / marker.
+
+    g(global) Won't return the first match, this then restarts the pervious search.
+
+    m(multi-line) ^ and $ oporators will match the start and end of a line instead of the start and end of a string.
+
+    i(insensitive) This make the whole Regex no longer case sensitive.
+
+    example: In the following Regex which checks for a Hex-Value we can that the i flag makes the search no longer case sensitive.
+
+    Looks for a Hex-Value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/i    
 
 ### Grouping and Capturing
 

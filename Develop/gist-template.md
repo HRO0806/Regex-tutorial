@@ -164,7 +164,17 @@ Briefly summarize the regex you will be describing and what you will explain. In
     Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
 
 ### Look-ahead and Look-behind
-    
+    d(?=r) matches a d only if it is followed by an r, r however, will not be part of the Regex match.
+
+    (?<=r>)d Matches a d only if it follows an r, r however, will not be part of the Regex match.
+
+    d(?!r) Matches a d if it not followed by an r, r again will not be part of the Regex match.
+
+    (?<!r)d Matches d only if it does not follow an r, r once again will not be part of the Regex match.
+
+    example: The following Regex is looking for any word where e is followed by an r. It does this by using the first expression in this section.
+
+    Looks for any word where e is followed by an r: /\w[e(?=r).*/b]/
 
 ## Author
 

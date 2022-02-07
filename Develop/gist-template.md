@@ -130,7 +130,18 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     example: In the following Regex which looks for a Hex-Value we see that it searches for a string with lowercase letters ranging from a to f or a (numerical) digit in both search expressions. It does this by using the expression [a-f0-9].
 
+    Looks for a Hex-Value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+
 ### Greedy and Lazy Match
+    <.+>(Greedy) Expands the match as far as it can. For example in our case anything between and including two HTML tags.
+
+    <.+?>(Lazy) Does the same as the last one but it only searches for HTML tags themselves.
+
+    <[^<>]+> This would be a better way of writing the previous expresion as it is more strict.
+
+    example: In following Regex which looks for an HTML tag we see that it uses the solution to finding just the HTML tags. It this by using [^<]+ to tell it to only look for the tag itselfe and not what is in between the opening and closing tags.
+
+    Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
 
 ### Boundaries
 

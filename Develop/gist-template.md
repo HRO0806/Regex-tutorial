@@ -139,14 +139,21 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     <[^<>]+> This would be a better way of writing the previous expresion as it is more strict.
 
-    example: In following Regex which looks for an HTML tag we see that it uses the solution to finding just the HTML tags. It this by using [^<]+ to tell it to only look for the tag itselfe and not what is in between the opening and closing tags.
+    example: In the following Regex which looks for an HTML tag we see that it uses the solution to finding just the HTML tags. It this by using [^<]+ to tell it to only look for the tag itselfe and not what is in between the opening and closing tags.
 
     Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
 
 ### Boundaries
+    \b Is an anchor similar to ^ and $. It matches a position where one side is \w character and the other is not (a (numerical) digit or whitespace).
+
+    \B Matches anything \b does not match.
+
+    example: In the following Regex which looks for a single word we see that the \b anchoris used to tell us that there is a space at the end of the word.
+
+    Looks for a single word: /\w.*\b/
 
 ### Back-references
-
+    
 ### Look-ahead and Look-behind
 
 ## Author

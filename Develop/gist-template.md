@@ -153,8 +153,18 @@ Briefly summarize the regex you will be describing and what you will explain. In
     Looks for a single word: /\w.*\b/
 
 ### Back-references
-    
+    \1 Matches the same text as the the first capturing group.
+
+    ([abc])([de])\2\1 Matches both the second and first capturing groups.
+
+    (?<foo>[abc])\k<foo> The \k oporator means that we reference the following group later.
+
+    example: In the following Regex which looks for an HTML tag we see that the \1 oporator is used to reference the group name (what type HTML tag it is) with the closing tag.
+
+    Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+
 ### Look-ahead and Look-behind
+    
 
 ## Author
 

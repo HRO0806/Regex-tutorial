@@ -38,7 +38,7 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     abc+  Matches a string where ab is followed by 1 or more c.
 
-    abc? Matches a string where ab eather 0 or 1 c.
+    abc? Matches a string where ab is followed eather 0 or 1 c.
 
     abc{3} Matches a string where ab is followed by 3 c.
 
@@ -55,6 +55,15 @@ Briefly summarize the regex you will be describing and what you will explain. In
     Looks for an email: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
 
 ### OR Operator
+    a(b|c) Matches a string where a is followed by eather b or c (and captures b and c).
+
+    a[bc] Matches string where a is followed by eather b or c (and does not capture b or c).
+
+    (When something is captured it means it is being seen as a whole unit vs separate characters.)
+
+    example: In this Regex which is looks for a hex-value we see the (|) and the [] oporators being used to search for combinations of six letters and numbers.
+
+    Looks for a hex value: ^#?([a-f0-9]{6}|[a-f0-9]{3})$
 
 ### Character Classes
 

@@ -102,14 +102,23 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
     i(insensitive) This make the whole Regex no longer case sensitive.
 
-    example: In the following Regex which checks for a Hex-Value we can that the i flag makes the search no longer case sensitive.
+    example: In the following Regex which checks for a Hex-Value we can see that the i flag makes the search no longer case sensitive.
 
     Looks for a Hex-Value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/i    
 
 ### Grouping and Capturing
+    a(bc) The parentheses make a capturing group with the value bc.
+
+    a(?:bc)* ?: disables the capturing group.
+
+    a(?<foo>bc) ?<foo> puts a name to the group.
+
+    example: In the following Regex which for an HTML tag we can see that it uses the ?:. It does this to tell the Regex to disable the capturing group for the HTML tag. We also see it capturing several groups.
+
+    Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
 
 ### Bracket Expressions
-
+    
 ### Greedy and Lazy Match
 
 ### Boundaries

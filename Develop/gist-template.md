@@ -23,6 +23,13 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ## Regex Components
 
 ### Anchors
+    ^ Mathches the string that follows it.
+    $ Match the string that precedes it.
+    ^$ Matches the string in between the ^ and $.
+
+    example: This in this Regex which looks for an email the ^ and $ characters signify the start and end of the string the Regex is looking for.
+
+    Looks for an email: ^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
 
 ### Quantifiers
 

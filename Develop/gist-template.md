@@ -2,7 +2,7 @@
  Regex stands for "regular expression" and is used as a tool to set search paramaters. For example you can tell it search for certain types of characters, specific charaters, a range of characters, or a grouping of specific characters.
 
 ## Summary
-    The Regex we are using as an example in this tutorial looks for a hex-value. If you are not sure what a hex-value is, follow this link: https://marketing.istockphoto.com/blog/hex-colors-guide/.
+The Regex we are using as an example in this tutorial looks for a hex-value. If you are not sure what a hex-value is, follow this link:       https://marketing.istockphoto.com/blog/hex-colors-guide/.
 
     The Regex I am using: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 

@@ -1,181 +1,75 @@
-# Title (replace with your title)
-
-Introductory paragraph (replace this with your text)
+# Introduction to Regex
+ Regex stands for "regular expression" and is used as a tool to set search paramaters. For example you can tell it search for certain types of characters, specific charaters, a range of characters, or a grouping of specific characters.
 
 ## Summary
+    The Regex we are using as an example in this tutorial looks for a hex-value. If you are not sure what a hex-value is, click this link https://marketing.istockphoto.com/blog/hex-colors-guide/.
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+    The Regex I am using: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ## Table of Contents
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
 - [OR Operator](#or-operator)
-- [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
 ### Anchors
-    ^ Mathches the string that follows it.
+    ^ Matches the string that follows it. Think of it as marking the start of the string.
 
-    $ Match the string that precedes it.
+    $ Match the string that precedes it. Think of it as marking the end of the string.
 
-    ^$ Matches the string in between the ^ and $.
+    ^$ Matches the string in between the ^ and $. Think of them sort of like quotation marks. They tell the Regex to search for what is inside of them.
 
-    example: In this Regex which looks for an email the ^ and $ characters signify the start and end of the string the Regex is looking for.
+    example: In the Regex that I chose which searches for a hex-value, the ^ and $ oporators are used to to mark the begining and end of the hex-value.
 
-    Looks for an email: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+    Regex example for finding a hex-value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ### Quantifiers
-    abc* Matches a string where ab is followed by 0 or more c.
+    abc? Matches a string where ab is followed eather 0 or 1 c. In our case it is telling the Regex to match a hex value with eather 3 characters or 6 characters. This way it knows that #000 is still a hex value even though the full hex-value is #000000.
 
-    abc+  Matches a string where ab is followed by 1 or more c.
-
-    abc? Matches a string where ab is followed eather 0 or 1 c.
-
-    abc{3} Matches a string where ab is followed by 3 c.
-
-    abc{3,} Matches a string where ab is followed by 3 or more c.
-
-    abc{3,6} Matches a string where ab is followed greater than or equal to 3 and less than or equal to 6 c.
-
-    a(bc)* Matches a string where a is followed by 0 or more sequences of bc.
-
-    a(bc) {3,6} Match a string where a is followed by the sequence ab greater than or equal to 3 and less than or equal to 6 times.
-
-    example: In this Regex which looks for an email we see the {2,6} oporator. This searches for a domain between 2 and 6 characters.
-
-    Looks for an email: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-
-### OR Operator
-    a(b|c) Matches a string where a is followed by eather b or c (and captures b and c).
-
-    a[bc] Matches string where a is followed by eather b or c (and does not capture b or c).
+    abc{3} Matches a string where ab is followed by 3 c. In our case it is being used to tell the Regex how many characters it should include in the captured group. It being told that the hex-value will be eather 3 characters or 6 characters long.
 
     (When something is captured it means it is being seen as a whole unit vs separate characters.)
 
-    example: In this Regex which is looks for a hex-value we see the (|) and the [] oporators being used to search for combinations of six letters and numbers.
+    example: In this Regex that I chose which searches for a hex-value the ? oporator is being used to tell it to search for a string that is eather 3 characters long or 6 characters long. The {} is being used to specify how many characters long the string is.
 
-    Looks for a hex value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+    Regex example for finding a hex-value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
-### Character Classes
-    \d Matches a single (numarical) digit character.
+### OR Operator
+    a(b|c) Matches a string where a is followed by eather b or c (and captures b and c). In our case it is being used to tell the Regex to look for eather the first set 
+    ([a-f0-9]{6}) or the second set ([a-f0-9]{3}).
 
-    \w Matches a word character.
+    a[bc] Matches string where a is followed by eather b or c (and does not capture b or c). In our case this is being used to tell the Regex to search for any lowercase characters for a to f or any number from 0 to 9.
 
-    \s Matches whitespace.
+    example: In the Regex I chose which searches for a hex-value we see both the (|) and [] oporators which tell it to looks for one or the other. The (|) oporater is used to tell the the Regex to look for a string of eather 3 characters or 6 characters. The [] oporator is being used to tell the Regex to look for eather any lowercase letter from a to f or any number from 0 to 9. Both a lowercase letter from a to f and a number from 0 to 9 are seen as valid characters for the string.
 
-    \t Matches a tab.
-    
-    \n Matches a new line.
-
-    \r Matches a return.
-
-    . Matches any character.
-
-    \D Matches a single non-(numerical)digit.
-
-    \W Matches a non-word character.
-
-    \S matches a lack of whitespace.
-
-    \$\d Matches matches a string where $ oporator exists behind one digit.
-
-    example: In the following Regex which checks for an email, we can see in the second set of parenthesis that it is search for a single numerical digit followed by any chararcater between a-z one or more times. It this by using the \d, and . oporators as well as the + oporator mentioned previously.
-
-    Looks for an email address: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-
-### Flags
-    /Regex/ Every Regex starts and ends with / oporator.
-        note: a flag goes after the closing / marker.
-
-    g(global) Won't return the first match, this then restarts the pervious search.
-
-    m(multi-line) ^ and $ oporators will match the start and end of a line instead of the start and end of a string.
-
-    i(insensitive) This make the whole Regex no longer case sensitive.
-
-    example: In the following Regex which checks for a Hex-Value we can see that the i flag makes the search no longer case sensitive.
-
-    Looks for a Hex-Value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/i    
+    Regex example for finding a hex-value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ### Grouping and Capturing
-    a(bc) The parentheses make a capturing group with the value bc.
+    a(bc) The parentheses make a capturing group with the value bc. In our case it is capturing the the hex-value. In other words it is seeing the hex value as a single unit rather than individual characters.
 
-    a(?:bc)* ?: disables the capturing group.
+    example: In the Regex I chose which searches for a hex-value we can see that it is using parentheses to capture the hex-value. Makes the Regex see it as a single unit rather than individual characters.
 
-    a(?<foo>bc) ?<foo> puts a name to the group.
-
-    example: In the following Regex which for an HTML tag we can see that it uses the ?:. It does this to tell the Regex to disable the capturing group for the HTML tag. We also see it capturing several groups.
-
-    Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+    Regex example for finding a hex-value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ### Bracket Expressions
-    [abc] Matches a string where eather an a, b, c is included.
+    [abc] Matches a string where eather an a, b, c is included. In our case it matches a string where any lowercase letter from a to f or any number from 0 to 9 is included.
 
-    [a-z] Matches a string that contains any lowercase letter.
+    [a-z] Matches a string that contains any lowercase letter. In our case it only searches from a to f (a-f).
 
-    [a-zA-Z0-9] Matches a string that contains a lower-case letter, upper-case letter, or any digit 1-9.
+    [a-zA-Z0-9] Matches a string that contains a lower-case letter, upper-case letter, or any digit 1-9. In our case it only matches a string with lowercase letters from a to f or numbers from 0 to 9.
 
-    [0-9]% Matches a string where any character 0-9 is followed directly by a %.
+    example: In the Regex I chose which searches for a hex-value we can see that it uses [a-f0-9] to tell the Regex that it matches any string with only these paramaters.
 
-    [^a-zA-Z] A string with no lower or uppercase letters.
-
-    example: In the following Regex which looks for a Hex-Value we see that it searches for a string with lowercase letters ranging from a to f or a (numerical) digit in both search expressions. It does this by using the expression [a-f0-9].
-
-    Looks for a Hex-Value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
-
-### Greedy and Lazy Match
-    <.+>(Greedy) Expands the match as far as it can. For example in our case anything between and including two HTML tags.
-
-    <.+?>(Lazy) Does the same as the last one but it only searches for HTML tags themselves.
-
-    <[^<>]+> This would be a better way of writing the previous expresion as it is more strict.
-
-    example: In the following Regex which looks for an HTML tag we see that it uses the solution to finding just the HTML tags. It this by using [^<]+ to tell it to only look for the tag itselfe and not what is in between the opening and closing tags.
-
-    Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
-
-### Boundaries
-    \b Is an anchor similar to ^ and $. It matches a position where one side is \w character and the other is not (a (numerical) digit or whitespace).
-
-    \B Matches anything \b does not match.
-
-    example: In the following Regex which looks for a single word we see that the \b anchoris used to tell us that there is a space at the end of the word.
-
-    Looks for a single word: /\w.*\b/
-
-### Back-references
-    \1 Matches the same text as the the first capturing group.
-
-    ([abc])([de])\2\1 Matches both the second and first capturing groups.
-
-    (?<foo>[abc])\k<foo> The \k oporator means that we reference the following group later.
-
-    example: In the following Regex which looks for an HTML tag we see that the \1 oporator is used to reference the group name (what type HTML tag it is) with the closing tag.
-
-    Looks for an HTML tag: /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
-
-### Look-ahead and Look-behind
-    d(?=r) matches a d only if it is followed by an r, r however, will not be part of the Regex match.
-
-    (?<=r>)d Matches a d only if it follows an r, r however, will not be part of the Regex match.
-
-    d(?!r) Matches a d if it not followed by an r, r again will not be part of the Regex match.
-
-    (?<!r)d Matches d only if it does not follow an r, r once again will not be part of the Regex match.
-
-    example: The following Regex is looking for any word where e is followed by an r. It does this by using the first expression in this section.
-
-    Looks for any word where e is followed by an r: /\w[e(?=r).*/b]/
+    Regex example for finding a hex-value: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Henry Olson is a young and new developer who is passionate about coding and web-development and wants to share his passion with the world. Henry has deep love of learning and wants loves sharing the things he is learning with others.
+
+Henry's GitHub profile: https://github.com/
+
+

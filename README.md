@@ -1,6 +1,6 @@
 # Regex Tutorial Starter Code
 
-This is a introduction to Regex tutorial. It teaches you the basics by finding a hex value.
+This is a introduction to Regex tutorial. It teaches you the basics by finding a hex value. I break down how each 
 
 This tutorial should act as a nice introduction to Regex. It uses a fairly simple Regex (it finds a hex-value) to acomplish this. I hope you enjoy my introduction tutorial.
 
